@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Group_Controller : MonoBehaviour
 {
-    Vector3 pos;
-    int objectId;
+    public List<GameObject> controllerList;
 
-    public void setObjectId(int _id)
+    private void Start()
     {
-        objectId = _id;
+        for(int i = 0; i < controllerList.Count; i++)
+        {
+            controllerList[i].SetActive(false);
+        }
+        
     }
 
-    public void setPos(Vector3 _pos)
+    public void directionOn(List<bool> directionList, int id)
     {
-        pos = _pos;
-        transform.Translate(pos.x,pos.y,pos.z);
+        for(int i = 0; i < directionList.Count; i++)
+        {
+            if(directionList[i] == true)
+            {
+                controllerList[i].SetActive(true);
+                //controllerList[i].setId(id);
+            }
+        }
     }
 
 }
