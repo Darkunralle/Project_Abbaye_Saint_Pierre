@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Object : MonoBehaviour, IPointerClickHandler
+public class Object : MonoBehaviour
 {
 
     public int id;
@@ -13,11 +13,19 @@ public class Object : MonoBehaviour, IPointerClickHandler
     // Up, Right, Down, Left
     List<bool> check = new List<bool> { false, false, false, false };
 
-    public void OnPointerClick(PointerEventData eventData)
+
+    public void OnMouseDown()
     {
-        Debug.Log("click");
         UpdateMove(game.check(id, check));
         control.directionOn(check, id);
+        resetCheck();
+    }
+
+    public void updateall()
+    {
+        UpdateMove(game.check(id, check));
+        control.directionOn(check, id);
+        resetCheck();
     }
 
     // Getter & Setter 
@@ -29,11 +37,12 @@ public class Object : MonoBehaviour, IPointerClickHandler
     public void resetCheck()
     {
         check = new List<bool> { false, false, false, false };
+        
     }
 
     public void UpdateMove(List<bool> _check)
     {
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             check[i] = _check[i];
         }
@@ -43,20 +52,30 @@ public class Object : MonoBehaviour, IPointerClickHandler
     {
         if (direction == "up")
         {
-            transform.Translate(transform.position.x, transform.position.y, transform.position.z-1);
+            transform.Translate(0,0,-1);
         }
         else if(direction == "right")
         {
-            transform.Translate(transform.position.x - 1, transform.position.y, transform.position.z);
+            transform.Translate(-1,0,0);
         }
         else if(direction == "down")
         {
-            transform.Translate(transform.position.x, transform.position.y, transform.position.z + 1);
+            transform.Translate(0,0,1);
         }
         else if(direction == "left")
         {
-            transform.Translate(transform.position.x + 1, transform.position.y, transform.position.z);
+            transform.Translate(1,0,0);
         }
+
+        control.directionOff();
+
+        game.matriceUpdate(direction, id);
+
+        updateall();
+
+        
+
+        
     }
 
     private void Start()

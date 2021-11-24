@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Controller : MonoBehaviour, IPointerClickHandler
+public class Controller : MonoBehaviour
 {
     public string name;
     public List<GameObject> piece;
@@ -14,20 +14,9 @@ public class Controller : MonoBehaviour, IPointerClickHandler
         id = _id;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnMouseDown()
     {
-        //piece[id].translate(id);
+        piece[id-1].GetComponent<Object>().translate(name);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

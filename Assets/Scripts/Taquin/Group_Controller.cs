@@ -22,8 +22,16 @@ public class Group_Controller : MonoBehaviour
             if(directionList[i] == true)
             {
                 controllerList[i].SetActive(true);
-                //controllerList[i].setId(id);
+                controllerList[i].GetComponent<Controller>().setId(id);
             }
+        }
+    }
+
+    public void directionOff()
+    {
+        for (int i = 0; i < controllerList.Count; i++)
+        {
+            controllerList[i].SetActive(false);
         }
     }
 
