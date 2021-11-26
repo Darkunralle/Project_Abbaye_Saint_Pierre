@@ -20,10 +20,10 @@ public class GameController : MonoBehaviour
     // Matrice de condition de victoire
     public int[,] victoryMatrice = new int[6, 6] {
         {99,99,99,99,99,99},
-        {99,0 ,0 ,0 ,0 ,99},
-        {99,0 ,0 ,0 ,0 ,99},
-        {99,0 ,0 ,0 ,0 ,99},
-        {99,4 ,3 ,2 ,1 ,99},
+        {99,1 ,2 ,3 ,4 ,99},
+        {99,5 ,6 ,7 ,8 ,99},
+        {99,9 ,10,11,12,99},
+        {99,13,14,15,0 ,99},
         {99,99,99,99,99,99}};
 
     // Vérifie si il y a quelque chose dans les 4 direction autour si non retourne "True" dans cette direction
