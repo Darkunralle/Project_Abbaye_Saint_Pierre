@@ -16,7 +16,8 @@ public class Object : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Pick");
+        resetCheck();
+        control.directionOff();
         UpdateMove(game.check(id, check));
         control.directionOn(check, id);
         resetCheck();
@@ -53,7 +54,7 @@ public class Object : MonoBehaviour
     {
         if (direction == "up")
         {
-            transform.Translate(0,0,-1);
+            transform.Translate(0,1,0);
         }
         else if(direction == "right")
         {
@@ -61,7 +62,7 @@ public class Object : MonoBehaviour
         }
         else if(direction == "down")
         {
-            transform.Translate(0,0,1);
+            transform.Translate(0,-1,0);
         }
         else if(direction == "left")
         {
