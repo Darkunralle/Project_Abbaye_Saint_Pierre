@@ -5,12 +5,10 @@ Projet de fin du premier semestre sur l'abbaye Saint Pierre (Moissac)
 Update 18/11/2021 :
 
 	New :
-		Ajout de la matrice
-		Disparition du Pad
+		Déplacement du taquin et condition de victoire
 
 	WIP :
-		Selection d'une pièce
-		Changement d'ip des controller
+		Changement de scène
 
 	Manquant :
 		Fonction de condition de victoire
