@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    protected Joystick joystick;
+    protected MovementJoystick joystick;
     public float speed = 12f;
 
     public CharacterController control;
     // Start is called before the first frame update
     void Start()
     {
-        joystick = FindObjectOfType<Joystick>();
+        joystick = FindObjectOfType<MovementJoystick>();
     }
 
     // Update is called once per frame

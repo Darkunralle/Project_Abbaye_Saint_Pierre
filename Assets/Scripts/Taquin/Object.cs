@@ -16,6 +16,7 @@ public class Object : MonoBehaviour
 
     public void OnMouseDown()
     {
+        Debug.Log("Pick");
         UpdateMove(game.check(id, check));
         control.directionOn(check, id);
         resetCheck();
@@ -83,4 +84,5 @@ public class Object : MonoBehaviour
         control = FindObjectOfType<Group_Controller>();
         game = FindObjectOfType<GameController>();
     }
+
 }
