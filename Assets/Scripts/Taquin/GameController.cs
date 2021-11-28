@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject uiVictory;
+
     int column = 0;
     int ligne = 0;
 
@@ -11,20 +14,25 @@ public class GameController : MonoBehaviour
     // 99 -> mur // 0 -> vide
     public int[,] matrice = new int[6,6] {
         {99,99,99,99,99,99},
-        {99,4 ,0 ,0 ,0 ,99}, 
-        {99,0 ,0 ,3 ,0 ,99}, 
-        {99,0 ,0 ,0 ,0 ,99}, 
-        {99,0 ,2 ,0 ,1 ,99}, 
+        {99,6 ,0 ,4 ,14,99},
+        {99,5 ,7 ,0 ,13,99},
+        {99,9 ,8 ,3 ,12,99},
+        {99,10,2 ,1 ,11,99},
         {99,99,99,99,99,99}};
-    
+
     // Matrice de condition de victoire
     public int[,] victoryMatrice = new int[6, 6] {
         {99,99,99,99,99,99},
         {99,1 ,2 ,3 ,4 ,99},
         {99,5 ,6 ,7 ,8 ,99},
         {99,9 ,10,11,12,99},
-        {99,13,14,15,0 ,99},
+        {99,13,14,0 ,0 ,99},
         {99,99,99,99,99,99}};
+
+    private void Start()
+    {
+        uiVictory.SetActive(false);
+    }
 
     // Vérifie si il y a quelque chose dans les 4 direction autour si non retourne "True" dans cette direction
     public List<bool> check(int id,List<bool> checklist)
@@ -63,7 +71,7 @@ public class GameController : MonoBehaviour
                 }
             }
         }
-        Debug.Log("ERROR");
+        Debug.Log("Na");
         return checklist;
     }
 
@@ -96,6 +104,7 @@ public class GameController : MonoBehaviour
         if (victory())
         {
             Debug.Log("Win");
+            uiVictory.SetActive(true);
         }
     }
 
@@ -124,6 +133,11 @@ public class GameController : MonoBehaviour
 
         }
         return true;
+    }
+
+    public void loadMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }
 

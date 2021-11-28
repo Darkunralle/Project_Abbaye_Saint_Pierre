@@ -2,15 +2,11 @@
 Projet de fin du premier semestre sur l'abbaye Saint Pierre (Moissac)
 
 
-Update 18/11/2021 :
+V1 Fonctionnell
 
-	New :
-		Déplacement du taquin et condition de victoire
 
-	WIP :
-		Changement de scène
+Ajouter (si temps)
 
-	Manquant :
-		Fonction de condition de victoire
-		Reset du Puzzle
-		Indice
+	Meilleur boutton pour lancer le jeu
+	Ecran de fin
+	Queqlues améliorations graphiques
