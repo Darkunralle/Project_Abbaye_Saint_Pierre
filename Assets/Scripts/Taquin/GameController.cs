@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject uiVictory;
+    public GameObject startScreen;
 
     int column = 0;
     int ligne = 0;
@@ -138,6 +139,11 @@ public class GameController : MonoBehaviour
     public void loadMain()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void startGame()
+    {
+        startScreen.SetActive(false);
     }
 }
 
