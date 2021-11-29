@@ -13,7 +13,6 @@ public class TaquinInterract : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(ifClicked);
         if ((Mathf.Abs(Vector3.Distance(this.transform.position, _player.transform.position)) < range)&& (ifClicked == false))
         {
             button.SetActive(true);
