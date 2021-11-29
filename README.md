@@ -1,12 +1,12 @@
-# Project_Abbaye_Saint_Pierre
-Projet de fin du premier semestre sur l'abbaye Saint Pierre (Moissac)
+V1.2
 
+	Ajout d'asset 3D
 
-V1 Fonctionnell
+		Ajout des objets sur Unity + placements sur la maps
+		Ajout des pilliers + position
+		Ajout coffre + position
 
+	Ajout de petit écran de démarage et tutoriel
+	Ajout d'élélment graphique pour l'ATH
 
-Ajouter (si temps)
-
-	Meilleur boutton pour lancer le jeu
-	Ecran de fin
-	Queqlues am�liorations graphiques
+Faire mur : 3*9 /2 en hauteur donc 3*4.5
