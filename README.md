@@ -1,3 +1,6 @@
+V1.2.1
+	Mesh collder sur les murs importer
+
 V1.2
 
 	Ajout d'asset 3D
