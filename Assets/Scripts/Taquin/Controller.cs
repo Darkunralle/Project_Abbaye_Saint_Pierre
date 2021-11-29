@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Controller : MonoBehaviour
+public class Controller : MonoBehaviour, IPointerClickHandler
 {
     public string name;
     public List<GameObject> piece;
@@ -14,9 +14,8 @@ public class Controller : MonoBehaviour
         id = _id;
     }
 
-    public void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        piece[id-1].GetComponent<Object>().translate(name);
+        piece[id - 1].GetComponent<Object>().translate(name);
     }
-
 }
