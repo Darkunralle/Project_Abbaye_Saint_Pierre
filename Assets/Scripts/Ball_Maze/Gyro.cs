@@ -7,6 +7,9 @@ public class Gyro : MonoBehaviour
     private bool gyroEnable;
     private Gyroscope gyro;
 
+    private float xrot = 0f;
+    private float zrot = 0f;
+
     public float speed;
     public GameObject plat;
 
@@ -15,13 +18,25 @@ public class Gyro : MonoBehaviour
         gyroEnable = enableGyro();
     }
 
+    public bool IsBetween(float toComp, float min, float max)
+    {
+        if (toComp < max && toComp > min)
+        {
+            return true;
+        }
+        return false;
+    }
+
     private bool enableGyro()
     {
         if (SystemInfo.supportsGyroscope)
         {
             gyro = Input.gyro;
             gyro.enabled = true;
+
+            
             return true;
+
         }
 
         return false;
@@ -29,6 +44,24 @@ public class Gyro : MonoBehaviour
 
     void Update()
     {
-        plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed, gyro.rotationRate.y * Time.fixedDeltaTime * speed, gyro.rotationRate.z * Time.fixedDeltaTime * speed);
+        if(gyroEnable == true)
+        {
+            if (IsBetween(gyro.rotationRate.x,-0.01f,0.01f)  && IsBetween(gyro.rotationRate.y, -0.01f, 0.01f))
+            {
+                plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            else
+            {
+                plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.z * Time.fixedDeltaTime * speed * 2 * -1);
+            }
+            
+
+        
+            Debug.Log(plat.transform.rotation);
+
+        }
+        else { Debug.Log("Gyro no detect"); }
     }
+
+    
 }

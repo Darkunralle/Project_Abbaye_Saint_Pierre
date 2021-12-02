@@ -7,8 +7,10 @@ public class Object : MonoBehaviour
 {
 
     public int id;
+    public Material mat;
     Group_Controller control;
     GameController game;
+    //Color32 rouge = new Color(255f, 0f, 0f, 255f);
 
     // Up, Right, Down, Left
     List<bool> check = new List<bool> { false, false, false, false };
@@ -16,7 +18,13 @@ public class Object : MonoBehaviour
 
     public void OnMouseDown()
     {
-        resetCheck();
+        call();
+    }
+
+    public void call()
+    {
+        //game.setId(id);
+        //mat.SetColor("_EmissionColor", new Color(255f, 0f, 0f, 255f));
         control.directionOff();
         UpdateMove(game.check(id, check));
         control.directionOn(check, id);
@@ -38,8 +46,12 @@ public class Object : MonoBehaviour
 
     public void resetCheck()
     {
-        check = new List<bool> { false, false, false, false };
-        
+        check = new List<bool> { false, false, false, false };  
+    }
+    //
+    public void resetColor()
+    {
+        mat.SetColor("_EmissionColor", new Color(0f, 0f, 0f, 0f));
     }
 
     public void UpdateMove(List<bool> _check)
@@ -84,6 +96,11 @@ public class Object : MonoBehaviour
     {
         control = FindObjectOfType<Group_Controller>();
         game = FindObjectOfType<GameController>();
+        mat.SetColor("_EmissionColor", new Color(0f, 0f, 0f, 0f));
     }
 
+    public int print()
+    {
+        return id;
+    }
 }
