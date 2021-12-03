@@ -1054,7 +1054,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35156
+  m_Name: pb_Mesh24698
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2300,21 +2300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiVictory: {fileID: 1356594761}
   startScreen: {fileID: 224554912}
-  piece:
-  - {fileID: 1341462348}
-  - {fileID: 1742738996}
-  - {fileID: 1093566446}
-  - {fileID: 982405748}
-  - {fileID: 1359926546}
-  - {fileID: 1476871613}
-  - {fileID: 1520760102}
-  - {fileID: 628033169}
-  - {fileID: 1004746369}
-  - {fileID: 2110347550}
-  - {fileID: 854297315}
-  - {fileID: 1271136301}
-  - {fileID: 105129966}
-  - {fileID: 734502263}
 --- !u!4 &1056436566
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,7 +2391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6533301011401407189, guid: e94380399f41682439c69ded0faa8055, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533301011401407190, guid: e94380399f41682439c69ded0faa8055, type: 3}
       propertyPath: m_Camera
@@ -3493,7 +3478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1356594762
 MonoBehaviour:
   m_ObjectHideFlags: 0

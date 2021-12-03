@@ -48,11 +48,20 @@ public class Gyro : MonoBehaviour
         {
             if (IsBetween(gyro.rotationRate.x,-0.01f,0.01f)  && IsBetween(gyro.rotationRate.y, -0.01f, 0.01f))
             {
-                plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                //plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
             else
             {
-                plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.z * Time.fixedDeltaTime * speed * 2 * -1);
+
+                Vector3 pos = plat.transform.position;
+
+                // make sure X lies between 0 and 100
+                pos.x = Mathf.Clamp(pos.x, 0f, 10f);
+                pos.y = Mathf.Clamp(pos.y, 0f, 10f);
+
+                transform.position = pos;
+
+                plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.y * Time.fixedDeltaTime * speed * 2 * -1);
             }
             
 

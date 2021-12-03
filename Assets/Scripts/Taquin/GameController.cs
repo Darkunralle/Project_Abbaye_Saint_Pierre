@@ -7,10 +7,6 @@ public class GameController : MonoBehaviour
 {
     public GameObject uiVictory;
     public GameObject startScreen;
-    public List<Object> piece;
-
-    protected int id=7;
-    protected int idTemp=7;
 
     int column = 0;
     int ligne = 0;
@@ -37,21 +33,9 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         uiVictory.SetActive(false);
-        /*Debug.Log(piece[6].print());
-        piece[id - 1].call();*/
+
     }
 
-    public void setId(int _id)
-    {
-        id = _id;
-
-        if (id != idTemp)
-        {
-            //piece[id - 1].resetColor();
-        }
-
-        idTemp = id;
-    }
 
     // Vérifie si il y a quelque chose dans les 4 direction autour si non retourne "True" dans cette direction
     public List<bool> check(int id,List<bool> checklist)

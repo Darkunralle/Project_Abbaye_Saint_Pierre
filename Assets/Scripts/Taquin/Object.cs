@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Object : MonoBehaviour
 {
@@ -23,8 +22,7 @@ public class Object : MonoBehaviour
 
     public void call()
     {
-        //game.setId(id);
-        //mat.SetColor("_EmissionColor", new Color(255f, 0f, 0f, 255f));
+        mat.SetColor("_Color", new Color(255f, 0f, 0f, 255f));
         control.directionOff();
         UpdateMove(game.check(id, check));
         control.directionOn(check, id);
@@ -51,7 +49,7 @@ public class Object : MonoBehaviour
     //
     public void resetColor()
     {
-        mat.SetColor("_EmissionColor", new Color(0f, 0f, 0f, 0f));
+        mat.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
     }
 
     public void UpdateMove(List<bool> _check)
@@ -96,11 +94,7 @@ public class Object : MonoBehaviour
     {
         control = FindObjectOfType<Group_Controller>();
         game = FindObjectOfType<GameController>();
-        mat.SetColor("_EmissionColor", new Color(0f, 0f, 0f, 0f));
+        mat.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
     }
 
-    public int print()
-    {
-        return id;
-    }
 }
