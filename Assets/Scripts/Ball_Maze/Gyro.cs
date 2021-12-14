@@ -52,25 +52,35 @@ public class Gyro : MonoBehaviour
             }
             else
             {
+                /*if (IsBetween(plat.transform.localEulerAngles.z,WrapAngle(),) )
+                {
+                    plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.y * Time.fixedDeltaTime * speed * 2 * -1);
+                }else if (IsBetween(plat.transform.localEulerAngles.z,14.5f,20f)) {
+                    plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                }*/
+                
 
-                Vector3 pos = plat.transform.position;
-
-                // make sure X lies between 0 and 100
-                pos.x = Mathf.Clamp(pos.x, 0f, 10f);
-                pos.y = Mathf.Clamp(pos.y, 0f, 10f);
-
-                transform.position = pos;
-
-                plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.y * Time.fixedDeltaTime * speed * 2 * -1);
+                Debug.Log(plat.transform.localEulerAngles.z);
+                
+                
             }
             
 
         
-            Debug.Log(plat.transform.rotation);
+           Debug.Log(WrapAngle(150));
 
         }
         else { Debug.Log("Gyro no detect"); }
     }
 
-    
+    private float WrapAngle(float angle)
+    {
+        angle %= 360;
+        if (angle > 180)
+            return angle - 360;
+
+        return angle;
+    }
+
+
 }
