@@ -1,3 +1,8 @@
+WIP V1.3.3
+	To do :
+		Ajuster les boutons de collecte (ne fonctionne que dans un ordre)
+		Regler le centre du labyrinthe et caler des mur invisible
+
 WIP V1.3.0
 	Ajout de la beta d'un système de sauvegarde
 	Correction des problèmes de déchargement
