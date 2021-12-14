@@ -1,5 +1,21 @@
+WIP V1.3.0
+	Ajout de la beta d'un système de sauvegarde
+	Correction des problèmes de déchargement
+
+	WIP : 
+		Collecte d'objet
+		Laby bille
+
+	To do :
+		Regler le boutton d'interaction pour chaque situation
+		Regler la position précise que les objets doivent prendre dans les pilliers
+
+		Faire de même avec la dernière épreuve
+
+		Terminer la labyrinthe a bille
+
 V1.2.1
-	Mesh collder sur les murs importer
+	Mesh collider sur les murs importer
 
 V1.2
 

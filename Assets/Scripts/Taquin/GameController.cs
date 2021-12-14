@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public GameObject uiVictory;
     public GameObject startScreen;
 
+    public bool autoWin = false;
+
     int column = 0;
     int ligne = 0;
 
@@ -140,12 +142,21 @@ public class GameController : MonoBehaviour
 
     public void loadMain()
     {
+        PlayerPrefs.SetInt("Taquin", 1);
         SceneManager.LoadScene(0);
     }
 
     public void startGame()
     {
         startScreen.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (autoWin == true)
+        {
+            uiVictory.SetActive(true);
+        }
     }
 }
 

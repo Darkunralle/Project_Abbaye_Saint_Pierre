@@ -11,8 +11,16 @@ public class StartScreenController : MonoBehaviour
 
     void Start()
     {
-        pageTwo.SetActive(false);
-        pageOne.SetActive(true);
+        if (PlayerPrefs.HasKey("Taquin"))
+        {
+            startScreen.SetActive(false);
+        }
+        else
+        {
+            pageTwo.SetActive(false);
+            pageOne.SetActive(true);
+        }
+        
     }
 
     public void goToTwo()
