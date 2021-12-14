@@ -131,12 +131,12 @@ public class AbbayeController : MonoBehaviour
 
     public void itemMoveDown(int id)
     {
-        item[id - 1].transform.Translate(0, -15, 0);
+        item[id].transform.Translate(0, 0, -50);
     }
 
     public void itemMove(int id, Vector3 obj)
     {
-        item[id - 1].transform.Translate(obj);  
+        item[id].transform.Translate(obj);  
     }
 
     public void resetPref()

@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Interract : MonoBehaviour
 {
-
+    [SerializeField]
     bool ifClicked = false;
-    float range = 5f;
+    float range = 2.5f;
     public GameObject _player;
     public GameObject button;
-    public int id = 0;
+    public InterractButton interract;
+    public int id;
     public string type = "none";
 
     public AbbayeController abbaye;
@@ -44,37 +45,41 @@ public class Interract : MonoBehaviour
     }
     private void Update()
     {
-        if (type != "pillar")
+        if (ifClicked == false)
         {
-            calcul();
+            if (type != "pillar")
+            {
+                calcul();
+            }
+            else
+            {/*
+                if (id == 0 && abbaye.getItem1() == 1)
+                {
+                    calcul();
+                }
+                if (id == 1 && abbaye.getItem2() == 1)
+                {
+                    calcul();
+                }
+                if (id == 2 && abbaye.getItem3() == 1)
+                {
+                    calcul();
+                }
+                if (id == 3 && abbaye.getItem4() == 1)
+                {
+                    calcul();
+                }
+                if (id == 10 && abbaye.getLastItem1() == 1)
+                {
+                    calcul();
+                }
+                if (id == 11 && abbaye.getLastItem2() == 1)
+                {
+                    calcul();
+                }*/
+            }
         }
-        else
-        {
-            if (id == 1 && abbaye.getItem1() == 1)
-            {
-                calcul();
-            }
-            else if (id == 2 && abbaye.getItem2() == 1)
-            {
-                calcul();
-            }
-            else if (id == 3 && abbaye.getItem3() == 1)
-            {
-                calcul();
-            }
-            else if (id == 1 && abbaye.getItem4() == 1)
-            {
-                calcul();
-            }
-            else if (id == 5 && abbaye.getLastItem1() == 1)
-            {
-                calcul();
-            }
-            else if (id == 6 && abbaye.getLastItem2() == 1)
-            {
-                calcul();
-            }
-        }
+        
         
 
     }
@@ -84,6 +89,7 @@ public class Interract : MonoBehaviour
         if ((Mathf.Abs(Vector3.Distance(this.transform.position, _player.transform.position)) < range) && (ifClicked == false))
         {
             button.SetActive(true);
+            interract.setId(id);
         }
         else
         {
@@ -118,32 +124,32 @@ public class Interract : MonoBehaviour
             }
             else if (type == "collect")
             {
-                if (id == 1)
+                if (id == 0)
                 {
                     abbaye.setItem1();
                     abbaye.itemMoveDown(id);
                 }
-                else if (id == 2)
+                if (id == 1)
                 {
                     abbaye.setItem2();
                     abbaye.itemMoveDown(id);
                 }
-                else if (id == 3)
+                if (id == 2)
                 {
                     abbaye.setItem3();
                     abbaye.itemMoveDown(id);
                 }
-                else if (id == 4)
+                if (id == 3)
                 {
                     abbaye.setItem4();
                     abbaye.itemMoveDown(id);
                 }
-                else if (id == 5)
+                if (id == 10)
                 {
                     abbaye.setLastItem1();
                     abbaye.itemMoveDown(id);
                 }
-                else if (id == 6)
+                if (id == 11)
                 {
                     abbaye.setLastItem2();
                     abbaye.itemMoveDown(id);
@@ -190,6 +196,7 @@ public class Interract : MonoBehaviour
             {
                 Debug.Log("Un type n'a pas était défini !");
             }
+            button.SetActive(false);
         }
         
 
