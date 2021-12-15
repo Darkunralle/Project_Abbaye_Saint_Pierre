@@ -7,8 +7,8 @@ public class Gyro : MonoBehaviour
     private bool gyroEnable;
     private Gyroscope gyro;
 
-    private float xrot = 0f;
-    private float zrot = 0f;
+    private float xrot;
+    private float zrot;
 
     public float speed;
     public GameObject plat;
@@ -16,15 +16,6 @@ public class Gyro : MonoBehaviour
     void Start()
     {
         gyroEnable = enableGyro();
-    }
-
-    public bool IsBetween(float toComp, float min, float max)
-    {
-        if (toComp < max && toComp > min)
-        {
-            return true;
-        }
-        return false;
     }
 
     private bool enableGyro()
@@ -46,33 +37,46 @@ public class Gyro : MonoBehaviour
     {
         if(gyroEnable == true)
         {
-            if (IsBetween(gyro.rotationRate.x,-0.01f,0.01f)  && IsBetween(gyro.rotationRate.y, -0.01f, 0.01f))
-            {
-                //plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            }
-            else
-            {
-                /*if (IsBetween(plat.transform.localEulerAngles.z,WrapAngle(),) )
-                {
-                    plat.transform.Rotate(gyro.rotationRate.x * Time.deltaTime * speed * -1, 0f, gyro.rotationRate.y * Time.fixedDeltaTime * speed * 2 * -1);
-                }else if (IsBetween(plat.transform.localEulerAngles.z,14.5f,20f)) {
-                    plat.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                }*/
-                
+            xrot = WrapAngle(plat.transform.localEulerAngles.x);
+            zrot = WrapAngle(plat.transform.localEulerAngles.z);
 
-                Debug.Log(plat.transform.localEulerAngles.z);
-                
-                
+            if (IsBetween(WrapAngle(zrot),-15.05f,15.05f) && IsBetween(WrapAngle(xrot), -15.05f, 15.05f))
+            { 
+                plat.transform.Rotate(Mathf.Clamp(gyro.rotationRate.x, -0.8f, 0.8f) * Time.deltaTime * speed * -1, 0f, Mathf.Clamp(gyro.rotationRate.y, -0.8f, 0.8f) * Time.deltaTime * speed * 3 * -1);
             }
+            else if (zrot < -15)
+            {
+                plat.transform.rotation = Quaternion.Euler(xrot, -90f, -15f);
+            }
+            else if (zrot > 15)
+            {
+                plat.transform.rotation = Quaternion.Euler(xrot, -90f, 15f);
+            }
+            else if (xrot < -15)
+            {
+                plat.transform.rotation = Quaternion.Euler(-15f, -90f, zrot);
+            }
+            else if (xrot > 15)
+            {
+                plat.transform.rotation = Quaternion.Euler(15f, -90f, zrot);
+            }
+
+
+
             
-
-        
-           Debug.Log(WrapAngle(150));
-
+           
         }
-        else { Debug.Log("Gyro no detect"); }
+        else { Debug.Log("Gyro not detected"); }
     }
 
+    private bool IsBetween(float toComp, float min, float max)
+    {
+        if (toComp < max && toComp > min)
+        {
+            return true;
+        }
+        return false;
+    }
     private float WrapAngle(float angle)
     {
         angle %= 360;
