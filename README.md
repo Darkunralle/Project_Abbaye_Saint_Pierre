@@ -1,36 +1,22 @@
-WIP V1.3.3
-	To do :
-		Ajuster les boutons de collecte (ne fonctionne que dans un ordre)
-		Regler le centre du labyrinthe et caler des mur invisible
+V2 To do
 
-WIP V1.3.0
-	Ajout de la beta d'un système de sauvegarde
-	Correction des problèmes de déchargement
-
-	WIP : 
-		Collecte d'objet
-		Laby bille
-
-	To do :
-		Regler le boutton d'interaction pour chaque situation
-		Regler la position précise que les objets doivent prendre dans les pilliers
-
-		Faire de même avec la dernière épreuve
-
-		Terminer la labyrinthe a bille
-
-V1.2.1
-	Mesh collider sur les murs importer
-
-V1.2
-
-	Ajout d'asset 3D
-
-		Ajout des objets sur Unity + placements sur la maps
-		Ajout des pilliers + position
-		Ajout coffre + position
-
-	Ajout de petit écran de démarage et tutoriel
-	Ajout d'élélment graphique pour l'ATH
-
-Faire mur : 3*9 /2 en hauteur donc 3*4.5
+	A régler pour la version Minimal
+	// Estimé 10/15 min
+	/!\ Petit problème les sauvegarde se font pas des fois a regler
+	// mm pas 1 min
+	La variable comtpeur pour la levé des porte doit être initalisé a 4 après la load de la 2 e save (Labyrinthe)
+	// entre 5 et 30 min
+	Tutoriel récolte d'objet
+	Ecran de fin et de début
+	// mm pas 5 min
+	Maj des UI
+	Supression du boutton force reset
+	
+	Ajout sympa a faire
+	Indicateur de l'objet porter
+	Ajout d'un indicateurl lumineur sur les item a récupéré
+	Ajout texte d'ambiance
+	Ajout Musique 
+	Ajout Sound Effect
+	Doublage
+	

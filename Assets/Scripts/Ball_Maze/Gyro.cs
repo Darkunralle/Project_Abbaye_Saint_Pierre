@@ -10,6 +10,8 @@ public class Gyro : MonoBehaviour
     private float xrot;
     private float zrot;
 
+    private bool starting = true;
+
     public float speed;
     public GameObject plat;
 
@@ -35,38 +37,37 @@ public class Gyro : MonoBehaviour
 
     void Update()
     {
-        if(gyroEnable == true)
+        if (starting)
         {
-            xrot = WrapAngle(plat.transform.localEulerAngles.x);
-            zrot = WrapAngle(plat.transform.localEulerAngles.z);
-
-            if (IsBetween(WrapAngle(zrot),-15.05f,15.05f) && IsBetween(WrapAngle(xrot), -15.05f, 15.05f))
-            { 
-                plat.transform.Rotate(Mathf.Clamp(gyro.rotationRate.x, -0.8f, 0.8f) * Time.deltaTime * speed * -1, 0f, Mathf.Clamp(gyro.rotationRate.y, -0.8f, 0.8f) * Time.deltaTime * speed * 3 * -1);
-            }
-            else if (zrot < -15)
+            if (gyroEnable == true)
             {
-                plat.transform.rotation = Quaternion.Euler(xrot, -90f, -15f);
-            }
-            else if (zrot > 15)
-            {
-                plat.transform.rotation = Quaternion.Euler(xrot, -90f, 15f);
-            }
-            else if (xrot < -15)
-            {
-                plat.transform.rotation = Quaternion.Euler(-15f, -90f, zrot);
-            }
-            else if (xrot > 15)
-            {
-                plat.transform.rotation = Quaternion.Euler(15f, -90f, zrot);
-            }
+                xrot = WrapAngle(plat.transform.localEulerAngles.x);
+                zrot = WrapAngle(plat.transform.localEulerAngles.z);
 
-
-
-            
-           
+                if (IsBetween(WrapAngle(zrot), -15.05f, 15.05f) && IsBetween(WrapAngle(xrot), -15.05f, 15.05f))
+                {
+                    plat.transform.Rotate(Mathf.Clamp(gyro.rotationRate.x, -0.8f, 0.8f) * Time.deltaTime * speed * -1, 0f, Mathf.Clamp(gyro.rotationRate.y, -0.8f, 0.8f) * Time.deltaTime * speed * 3 * -1);
+                }
+                else if (zrot < -15)
+                {
+                    plat.transform.rotation = Quaternion.Euler(xrot, 0f, -15f);
+                }
+                else if (zrot > 15)
+                {
+                    plat.transform.rotation = Quaternion.Euler(xrot, 0f, 15f);
+                }
+                else if (xrot < -15)
+                {
+                    plat.transform.rotation = Quaternion.Euler(-15f, 0f, zrot);
+                }
+                else if (xrot > 15)
+                {
+                    plat.transform.rotation = Quaternion.Euler(15f, 0f, zrot);
+                }
+            }
+            else { Debug.Log("Gyro not detected"); }
         }
-        else { Debug.Log("Gyro not detected"); }
+        
     }
 
     private bool IsBetween(float toComp, float min, float max)

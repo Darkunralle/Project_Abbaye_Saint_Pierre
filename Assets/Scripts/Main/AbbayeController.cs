@@ -7,9 +7,8 @@ public class AbbayeController : MonoBehaviour
     public MeshCollider door1;
     public MeshCollider door2;
     public MeshCollider door3;
-
+    
     public GameObject maze;
-    [SerializeField]
     protected int taquin = 0;
 
     protected int ballMaze = 0;
@@ -19,10 +18,7 @@ public class AbbayeController : MonoBehaviour
     protected int item3 = 0;
     protected int item4 = 0;
 
-    protected bool collectAll = false;
-
-    protected int lastItem1 = 0;
-    protected int lastItem2 = 0;
+    protected bool openFinalDoor = false;
 
     public List<MeshCollider> item;
 
@@ -36,51 +32,6 @@ public class AbbayeController : MonoBehaviour
         {
             ballMaze = PlayerPrefs.GetInt("Maze");
         }
-        if (PlayerPrefs.HasKey("Collect"))
-        {
-            if(PlayerPrefs.GetInt("Collect") == 1)
-            {
-                collectAll = true;
-                itemMoveDown(1);
-                itemMoveDown(2);
-                itemMoveDown(3);
-                itemMoveDown(4);
-            }
-        }
-    }
-
-    // getter
-    public int getItem1()
-    {
-        return item1;
-    }
-    public int getItem2()
-    {
-        return item2;
-    }
-    public int getItem3()
-    {
-        return item3;
-    }
-    public int getItem4()
-    {
-        return item4;
-    }
-    public int getLastItem1()
-    {
-        return lastItem1;
-    }
-    public int getLastItem2()
-    {
-        return lastItem2;
-    }
-    public int getTaquin()
-    {
-        return taquin;
-    }
-    public int getMaze()
-    {
-        return ballMaze;
     }
 
     // setter
@@ -100,14 +51,6 @@ public class AbbayeController : MonoBehaviour
     {
         item4++;
     }
-    public void setLastItem1()
-    {
-        lastItem1++;
-    }
-    public void setLastItem2()
-    {
-        lastItem2++;
-    }
     public void setTaquin()
     {
         taquin++;
@@ -117,21 +60,9 @@ public class AbbayeController : MonoBehaviour
         ballMaze++;
     }
 
-    private void Start()
+    public void setFinalDoorState()
     {
-        maze.SetActive(false);
-        if (collectAll)
-        {
-            item1 = 2;
-            item2 = 2;
-            item3 = 2;
-            item4 = 2;
-        }
-    }
-
-    public void itemMoveDown(int id)
-    {
-        item[id].transform.Translate(0, 0, -50);
+        openFinalDoor = true;
     }
 
     public void itemMove(int id, Vector3 obj)
@@ -149,24 +80,20 @@ public class AbbayeController : MonoBehaviour
         if (taquin == 1)
         {
             door1.transform.position = new Vector3(door1.transform.position.x, door1.transform.position.y + 3f, door1.transform.position.z);
-            Debug.Log("bup");
+            Debug.Log("glonk");
             taquin = 2;
         }
 
         if (ballMaze == 1)
         {
-            door2.transform.localPosition.Set(door2.transform.localPosition.x, door2.transform.localPosition.y + 3f, door2.transform.localPosition.z);
+            door2.transform.position = new Vector3(door2.transform.position.x, door2.transform.position.y + 3f, door2.transform.position.z);
+            Debug.Log("glank");
             ballMaze = 2;
         }
-
-        if (item1 == 2 && item2 == 2 && item3 == 2 && item4 ==2)
+        
+        if (openFinalDoor)
         {
-            maze.SetActive(true);
-        }
-
-        if (lastItem1 == 2 && lastItem2 == 2)
-        {
-            door3.transform.localPosition.Set(door3.transform.localPosition.x, door3.transform.localPosition.y + 1, door3.transform.localPosition.z);
+            door3.transform.position = new Vector3(door3.transform.position.x, door3.transform.position.y + 3f, door3.transform.position.z);
         }
     }
 

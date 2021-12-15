@@ -17,22 +17,13 @@ public class Group_Controller : MonoBehaviour
 
     public void directionOn(List<bool> directionList, int id)
     {
-        int _id=0;
-        int _id_temp=0;
         for(int i = 0; i < directionList.Count; i++)
         {
             if(directionList[i] == true)
             {
                 controllerList[i].SetActive(true);
                 controllerList[i].GetComponent<Controller>().setId(id);
-                _id = controllerList[i].GetComponent<Controller>().getId();
-                _id_temp = controllerList[i].GetComponent<Controller>().getIdTemp();
             }
-        }
-
-        for (int a = 0; a < directionList.Count; a++)
-        {
-            controllerList[a].GetComponent<Controller>().forceIdUp(_id, _id_temp);
         }
     }
 
