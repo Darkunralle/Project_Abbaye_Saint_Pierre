@@ -48,12 +48,12 @@ public class InterractiveObject : MonoBehaviour
             }
             else if (id == 3)
             {
-                item.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.25f, this.transform.position.z);
+                item.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
                 item.transform.rotation = new Quaternion(-90, 0, 0, 0);
             }
             else if (id == 4)
             {
-                item.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+                item.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.25f, this.transform.position.z);
             }else if(id == 5)
             {
                 item.transform.position = new Vector3(44.3f, -0.8f, 48.1f);

@@ -6,6 +6,8 @@ public class SoundController : MonoBehaviour
 {
     public AudioSource tutop2;
     public AudioSource fourObj;
+    public AudioSource enter;
+    public AudioSource voiceFinal;
 
     public void playTutoP2()
     {
@@ -22,5 +24,15 @@ public class SoundController : MonoBehaviour
     public void play4Obj()
     {
         fourObj.Play();
+    }
+
+    public void playEnter()
+    {
+        enter.Play();
+    }
+    public void playFinal()
+    {
+        voiceFinal.Play();
+
     }
 }

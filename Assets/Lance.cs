@@ -7,6 +7,7 @@ public class Lance : MonoBehaviour
 {
     private float distanceGet = 2.5f;
     private float distance;
+    public SoundController sound;
 
     public GameObject player;
     public GameObject lance;
@@ -18,7 +19,7 @@ public class Lance : MonoBehaviour
         if (distance < distanceGet)
         {
             ui.SetActive(true);
-            //SceneManager.LoadScene(3);
+            sound.playFinal();
         }
     }
 }
