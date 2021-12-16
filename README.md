@@ -1,15 +1,10 @@
-V1.2.1
-	Mesh collder sur les murs importer
+V2 To do
 
-V1.2
-
-	Ajout d'asset 3D
-
-		Ajout des objets sur Unity + placements sur la maps
-		Ajout des pilliers + position
-		Ajout coffre + position
-
-	Ajout de petit écran de démarage et tutoriel
-	Ajout d'élélment graphique pour l'ATH
-
-Faire mur : 3*9 /2 en hauteur donc 3*4.5
+	A régler pour la version Minimal
+	
+	Ajout sympa a faire
+	Indicateur de l'objet porter
+	Ajout d'un indicateurl lumineur sur les item a récupéré
+	Ajout Sound Effect
+	Doublage
+	

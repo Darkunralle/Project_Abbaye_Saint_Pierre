@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     // 99 -> mur // 0 -> vide
     public int[,] matrice = new int[6,6] {
         {99,99,99,99,99,99},
-        {99,6 ,0 ,4 ,14,99},
+        {99,6 ,0 ,4 ,0 ,99},
         {99,5 ,7 ,0 ,13,99},
         {99,9 ,8 ,3 ,12,99},
         {99,10,2 ,1 ,11,99},
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         {99,1 ,2 ,3 ,4 ,99},
         {99,5 ,6 ,7 ,8 ,99},
         {99,9 ,10,11,12,99},
-        {99,13,14,0 ,0 ,99},
+        {99,13,0 ,0 ,0 ,99},
         {99,99,99,99,99,99}};
 
     private void Start()
