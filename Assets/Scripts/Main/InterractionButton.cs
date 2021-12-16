@@ -8,25 +8,25 @@ public class InterractionButton : MonoBehaviour
     public List<InterractiveObject> items;
     public GameObject player;
     public AbbayeController ctrl;
-
-    private List<InterractiveObject> collectible;
+    public SoundController sound;
+    public List<InterractiveObject> collectible;
     
-    private float distanceGet = 2.5f;
+    private float distanceGet = 4f;
     private float distance;
+    [SerializeField]
     private int compteur = 0;
     private void Awake()
     {
-        foreach (InterractiveObject item in items)
+        foreach (InterractiveObject row in items)
         {
-            if((item.id>0 && item.id < 5 ) && item.typeObject == "Collectible")
-            {
-                collectible.Add(item);
-            }
+            row.initalPos = row.transform.position;
+            row.initalRot = row.transform.rotation;
         }
         if (PlayerPrefs.HasKey("Taquin"))
         {
             if (PlayerPrefs.GetInt("Taquin") == 1)
             {
+                Debug.Log("Taquin 1");
                 foreach (InterractiveObject item in items)
                 {
                     
@@ -35,30 +35,37 @@ public class InterractionButton : MonoBehaviour
                         item.inactive();
                     }
                 }
+                
             }
+            if(PlayerPrefs.GetInt("Maze") != 1)
+            {
+                sound.playTutoP2();
+            }
+            
         }
-        else if (PlayerPrefs.HasKey("Maze"))
+        if (PlayerPrefs.HasKey("Maze"))
         {
             if (PlayerPrefs.GetInt("Maze") == 1)
             {
+                Debug.Log("Maze 1");
                 foreach (InterractiveObject item in items)
                 {
                     foreach (InterractiveObject colect in collectible)
                     {
-                        if (item.id == colect.id && item.typeObject == "Pillar")
+                        if (item.id ==  1 && colect.id == 1 && item.typeObject == "Pillar")
                         {
                             colect.transform.position = new Vector3(item.transform.position.x, item.transform.position.y - 1f, item.transform.position.z);
                         }
-                        else if (item.id == 2)
+                        else if (item.id == 2 && colect.id == 2 && item.typeObject == "Pillar")
                         {
                             colect.transform.position = new Vector3(item.transform.position.x, item.transform.position.y - 0.75f, item.transform.position.z);
                         }
-                        else if (item.id == 3)
+                        else if (item.id == 3 && colect.id == 3 && item.typeObject == "Pillar")
                         {
                             colect.transform.position = new Vector3(item.transform.position.x, item.transform.position.y - 0.25f, item.transform.position.z);
                             colect.transform.rotation = new Quaternion(-90, 0, 0, 0);
                         }
-                        else if (item.id == 4)
+                        else if (item.id == 4 && colect.id == 4 && item.typeObject == "Pillar")
                         {
                             colect.transform.position = new Vector3(item.transform.position.x, item.transform.position.y - 1f, item.transform.position.z);
                         }
@@ -68,6 +75,7 @@ public class InterractionButton : MonoBehaviour
                         item.inactive();
                     }
                 }
+                compteur = 4;
             }
         }
 
@@ -100,6 +108,10 @@ public class InterractionButton : MonoBehaviour
                         inventaire.dropInventory();
                         inventaire.changeBagState(true);
                         compteur++;
+                        if (compteur == 4)
+                        {
+                            sound.play4Obj();
+                        }
                     }
                     else { Debug.Log("Pas le bon pillier"); }
                 }else if(item.typeObject == "Taquin" &&  item.getState())
@@ -131,5 +143,17 @@ public class InterractionButton : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         PlayerPrefs.SetFloat("PlayerZ", player.transform.position.z);
+    }
+
+    private void restart()
+    {
+        player.transform.position = new Vector3(58.5f, -0.9f, -19.5f);
+        foreach (InterractiveObject row in items)
+        {
+            row.transform.position = row.initalPos;
+            row.transform.rotation = row.initalRot;
+            row.activate();
+            compteur = 0;
+        }
     }
 }

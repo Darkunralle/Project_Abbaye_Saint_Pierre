@@ -10,6 +10,10 @@ public class InterractiveObject : MonoBehaviour
     [SerializeField]
     private bool active = true;
 
+    public Vector3 initalPos;
+    public Quaternion initalRot;
+
+
     public void collect()
     {
         if(typeObject == "Taquin")
@@ -50,8 +54,14 @@ public class InterractiveObject : MonoBehaviour
             else if (id == 4)
             {
                 item.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+            }else if(id == 5)
+            {
+                item.transform.position = new Vector3(44.3f, -0.8f, 48.1f);
             }
-            else { item.transform.position = this.transform.position; }
+            else if (id == 6)
+            { 
+                item.transform.position = new Vector3(55.3f, -0.8f, 48.1f); 
+            }
             inactive();
             item.inactive();
             return true;
@@ -67,6 +77,11 @@ public class InterractiveObject : MonoBehaviour
     public void inactive()
     {
         active = false;
+    }
+
+    public void activate()
+    {
+        active = true;
     }
 
     private void Update()

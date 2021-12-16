@@ -7,20 +7,12 @@ public class AbbayeController : MonoBehaviour
     public MeshCollider door1;
     public MeshCollider door2;
     public MeshCollider door3;
-    
-    public GameObject maze;
-    protected int taquin = 0;
 
+    protected int taquin = 0;
     protected int ballMaze = 0;
 
-    protected int item1 = 0;
-    protected int item2 = 0;
-    protected int item3 = 0;
-    protected int item4 = 0;
-
     protected bool openFinalDoor = false;
-
-    public List<MeshCollider> item;
+    private bool doorOpen = false;
 
     private void Awake()
     {
@@ -35,22 +27,6 @@ public class AbbayeController : MonoBehaviour
     }
 
     // setter
-    public void setItem1()
-    {
-        item1++;
-    }
-    public void setItem2()
-    {
-        item2++;
-    }
-    public void setItem3()
-    {
-        item3++;
-    }
-    public void setItem4()
-    {
-        item4++;
-    }
     public void setTaquin()
     {
         taquin++;
@@ -63,11 +39,6 @@ public class AbbayeController : MonoBehaviour
     public void setFinalDoorState()
     {
         openFinalDoor = true;
-    }
-
-    public void itemMove(int id, Vector3 obj)
-    {
-        item[id].transform.Translate(obj);  
     }
 
     public void resetPref()
@@ -91,9 +62,10 @@ public class AbbayeController : MonoBehaviour
             ballMaze = 2;
         }
         
-        if (openFinalDoor)
+        if (openFinalDoor && doorOpen == false)
         {
             door3.transform.position = new Vector3(door3.transform.position.x, door3.transform.position.y + 3f, door3.transform.position.z);
+            doorOpen = true;
         }
     }
 
