@@ -2759,6 +2759,11 @@ PrefabInstance:
       value: -287.99994
       objectReference: {fileID: 0}
     - target: {fileID: 6533301011955946937, guid: e94380399f41682439c69ded0faa8055, type: 3}
+      propertyPath: m_Text
+      value: "S\xE9lectionner un cube et diriger avec les fl\xE8ches \xE0 votre droite,
+        quand le mouvement est impossible la fl\xE8che est assombrie."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533301011955946937, guid: e94380399f41682439c69ded0faa8055, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -2781,6 +2786,11 @@ PrefabInstance:
     - target: {fileID: 6533301012302664859, guid: e94380399f41682439c69ded0faa8055, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: startGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533301012518163870, guid: e94380399f41682439c69ded0faa8055, type: 3}
+      propertyPath: m_Text
+      value: "Voici la premi\xE8re \xE9nigme pour l'accomplir vous devez reproduire
+        l'image situ\xE9 sur la droite."
       objectReference: {fileID: 0}
     - target: {fileID: 6533301012518163870, guid: e94380399f41682439c69ded0faa8055, type: 3}
       propertyPath: m_Color.b
