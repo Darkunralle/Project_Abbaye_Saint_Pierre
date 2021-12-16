@@ -97,6 +97,7 @@ public class InterractionButton : MonoBehaviour
                 Debug.Log(inventaire.isEmpty());
                 if(item.typeObject == "Collectible" && inventaire.isEmpty() && item.getState())
                 {
+                    sound.playGetEffect();
                     item.collect();
                     inventaire.changeBagState(false);
                     inventaire.manageInventory(item);
@@ -108,7 +109,19 @@ public class InterractionButton : MonoBehaviour
                         inventaire.dropInventory();
                         inventaire.changeBagState(true);
                         compteur++;
-                        if (compteur == 4)
+                        if(compteur == 1)
+                        {
+                            sound.playNara1();
+                        }
+                        else if (compteur == 2)
+                        {
+                            sound.playNara2();
+                        }
+                        else if (compteur == 3)
+                        {
+                            sound.playNara3();
+                        }
+                        else if (compteur == 4)
                         {
                             sound.play4Obj();
                         }

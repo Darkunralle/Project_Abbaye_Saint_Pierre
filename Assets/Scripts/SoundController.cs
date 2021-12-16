@@ -8,6 +8,10 @@ public class SoundController : MonoBehaviour
     public AudioSource fourObj;
     public AudioSource enter;
     public AudioSource voiceFinal;
+    public AudioSource nara1;
+    public AudioSource nara2;
+    public AudioSource nara3;
+    public AudioSource getEffect;
 
     public void playTutoP2()
     {
@@ -35,4 +39,25 @@ public class SoundController : MonoBehaviour
         voiceFinal.Play();
 
     }
+    public void playNara1()
+    {
+        nara1.Play();
+
+    }
+    public void playNara2()
+    {
+        nara2.Play();
+
+    }
+    public void playNara3()
+    {
+        nara3.Play();
+
+    }
+    public void playGetEffect()
+    {
+        getEffect.Play();
+
+    }
+
 }

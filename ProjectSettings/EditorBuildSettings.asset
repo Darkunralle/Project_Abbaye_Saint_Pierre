@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ball_maze.unity
     guid: 8cd588cd77a523a4d923496c6d1fb13e
-  - enabled: 1
-    path: Assets/Scenes/Final.unity
-    guid: 6550d3d3131cbf94e81f6f4ecb5f90c4
   m_configObjects: {}
