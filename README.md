@@ -5,8 +5,6 @@ V2 To do
 	Ajout sympa a faire
 	Indicateur de l'objet porter
 	Ajout d'un indicateurl lumineur sur les item a récupéré
-	Ajout texte d'ambiance
-	Ajout Musique 
 	Ajout Sound Effect
 	Doublage
 	
